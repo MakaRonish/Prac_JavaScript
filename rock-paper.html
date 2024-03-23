@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper sissors</title>
+</head>
+<body>
+    <p> Rock Paper Scissors</p>
+    <button onclick="
+    if(random>0 && random<1/3){
+        comp_choice='Rock';
+    }else if (random>1/3 && random<2/3) {
+        comp_choice='Paper';
+    }else{
+        comp_choice='Scissors';
+    }
+    if (comp_choice==='Rock'){
+        result='tie';
+    }else if (comp_choice==='Scissors'){
+        result='you Win';
+    }else if (comp_choice==='Paper'){
+        result='you loss';
+    }
+    alert(`You picked rock. computer picked ${comp_choice}. ${result}`)
+    ">
+        Rock
+    </button>
+    <button onclick="
+    if(random>0 && random<1/3){2
+        comp_choice='Rock';
+    }else if (random>1/3 && random<2/3) {
+        comp_choice='Paper';
+    }else{
+        comp_choice='Scissors';
+    }
+    if (comp_choice==='Paper'){
+        result='tie';
+    }else if (comp_choice==='Rock'){
+        result='you Win';
+    }else if (comp_choice==='Scissors'){
+        result='you loss';
+    }
+    alert(`You picked Paper. computer picked ${comp_choice}. ${result}`)">
+        Papper
+    </button>
+    <button onclick="
+    if(random>0 && random<1/3){2
+        comp_choice='Rock';
+    }else if (random>1/3 && random<2/3) {
+        comp_choice='Paper';
+    }else{
+        comp_choice='Scissors';
+    }
+    if (comp_choice==='Scissors'){
+        result='tie';
+    }else if (comp_choice==='Paper'){
+        result='you Win';
+    }else if (comp_choice==='Rock'){
+        result='you loss';
+    }
+    alert(`You picked Scissors.computer picked ${comp_choice}. ${result}`)">
+        Scissors
+    </button>
+
+    <script>
+        const random = Math.random();
+        let user_choice='';
+        let comp_choice='';
+        let result='';
+
+    </script>
+    
+</body>
+</html>
