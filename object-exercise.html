@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Object={
+            name: 'basketball',
+            price: 2095,
+            ['delicery-time']:'3 days'
+        }
+        console.log(Object);
+        Object.price+=500;
+        console.log(Object.price);
+        console.log(Object);
+
+        const camera={
+            name:'Camera',
+            price:400000
+        };
+        const phone={
+            name:'ro',
+            price:4000
+        }
+
+
+        function comparePrice(product1,product2){
+            let ans='';
+            if (product1.price>product2.price){
+                 ans=product2.name
+            }else{
+                ans=product1.name
+            }
+            console.log(`${ans} is cheaper`);
+
+
+        }
+        comparePrice(camera,phone)
+
+        function isSameProduct(p1,p2){
+            if(p1.name===p2.name && p1.price===p2.price){
+                console.log('they are same product.');
+            }else{
+                console.log('they are defferent product')
+            }
+        }
+        isSameProduct(camera,phone)
+        console.log('GOOD MORINING'.toLowerCase());
+
+        const h='rr'
+        console.log('gwe'.repeat(9))
+    </script>
+</body>
+</html>

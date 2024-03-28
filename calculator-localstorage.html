@@ -29,22 +29,20 @@
         <button onclick="updateCalculation(0);">0</button>
         <button onclick="updateCalculation('.');">.</button>
         <button onclick="updateCalculation('/');">/</button>
-        <button onclick="calculation=eval(calculation);
-        console.log(calculation);
-        localStorage.setItem('calculation',calculation);"
-        >=</button>
+        <button onclick="updateCalculation('=');">=</button>
     </p>
-    <button onclick="calculation='';console.log('clear');
-    localStorage.setItem('calculation',calculation);">
+    <button onclick="calculation='';console.log('clear')">
         clear
     </button>
     
 
     <script>
-        let calculation=localStorage.getItem('calculation') || '';
+        let calculation='';
         function updateCalculation(number){
             calculation+=number;
             console.log(calculation)
+
+
         }
     </script>
 </body>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        const product = {
+            name: 'socks',
+            price:1090
+        };
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+        //to change
+
+        product.name='cotton socks';
+        console.log(product.name);
+        product.newProperty=true;
+
+        console.log(product);
+
+        delete product.newProperty
+
+        console.log(product);
+//ANOTHER WAY TO ACCESS VALUE
+        const product2={
+            name:'shirt',
+            'delivery-time':'1 day',
+            rating:{
+                stars:4.5,
+                count:87
+            },
+            fun: function function1() {
+                console.log('function inside an object');
+            }
+
+        };
+        console.log(product2);
+        //SQUARE BRACKET
+        console.log(product2['name']);
+        console.log(product2.rating.count);
+        product2.fun()
+
+//js object to json
+        console.log(JSON.stringify(product2));
+//json to js object
+
+        const jsonString= JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+
+        //Auto boxing;
+
+
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());
+
+        const object={
+            message:'hello'
+        };
+
+        const object2=object;
+
+        object.message='good job'
+        console.log(object);
+
+        const object3 ={
+            message: 'good job'
+        };
+
+
+        const object4 ={
+            message: 'good job',
+            price:8999
+        };
+        // const message=object4.message;
+        //short cut
+        const{message,price}=object4; //only work if variable is same as property
+        console.log(price);
+
+
+        const object5={
+            message:message,
+            price:price
+            //shorthand
+            
+        }
+        const ob={
+            message
+        }
+        console.log(object5);
+        console.log(ob);
+        
+        
+
+
+    </script>
+
+</body>
+</html>
