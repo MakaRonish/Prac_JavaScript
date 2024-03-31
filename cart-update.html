@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <p>Cart Quantity</p>
+    <button id="show" onclick="show()">Show Quantity</button>
+    <button id="one" onclick="updateCartQuantity(1);
+"
+    >Add to Cart
+    </button> <!--use template string here-->
+    <button id="plus2" 
+    onclick="
+    updateCartQuantity(2);"> +2
+    </button>
+    <button id="three" 
+    onclick="
+    updateCartQuantity(3);">+3
+    </button>
+    <button onclick="
+    updateCartQuantity(4);">
+        +4
+    </button>
+    <button
+    onclick="
+    updateCartQuantity(5);">
+        +5
+    </button>
+    <button onclick="updateCartQuantity(-1);">Remoe from cart</button>
+    <button onclick="
+        updateCartQuantity(-2);">
+        -2
+    </button>
+    <button onclick="
+    updateCartQuantity(-3);">
+        -3
+    </button>
+    <button id="Reset" 
+    onclick="Quantity=0; 
+    document.querySelector('.cart').innerHTML=`cart reset cart quantity: ${Quantity}`;">
+    Reset cart
+    </button>
+    <p class="cart"></p>
+    <script>
+        let Quantity=0;
+
+        function updateCartQuantity (number){
+            if (number>0){
+            if (Quantity+number>10){
+                document.querySelector('.cart').innerHTML='The cart is full';
+                
+            
+            }else {
+                Quantity+=number; //shortcut for +1
+                document.querySelector('.cart').innerHTML=`cart quantity: ${Quantity}`;
+                
+                
+            }}else if (number<0) {
+                if (Quantity+number<0){
+                    document.querySelector('.cart').innerHTML='Nothing in the cart';
+                    return;
+                    
+                }else{
+                    Quantity+=number; 
+                    document.querySelector('.cart').innerHTML=`removed from cart \n cart quantity: ${Quantity}`;
+                }
+               
+
+            }
+
+        }
+        function show(){
+            document.querySelector('.cart').innerHTML=`cart quantity: ${Quantity}`;
+        }
+    </script>    
+</body>
+</html>
