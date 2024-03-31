@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .add{
+            background-color: yellow;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 7px 40px;
+            border: none;
+            border-radius: 25px;
+        }
+        .button{
+            padding: 10px 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+        .uber{
+            background-color: black;
+            color: white;
+        }
+        .schedule{
+            background-color: rgb(178, 172, 172);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button class="add">Add to cart</button>
+    <button class="uber button">Request now</button>
+    <button class="schedule button">Schedule for later</button>
+    <Button class="js-button">Test</Button>
+    <script>
+        document.querySelector('.js-button');
+        console.log(document.classList.contains('js-button'));
+    </script>
+</body>
+</html>

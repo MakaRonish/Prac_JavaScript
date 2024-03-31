@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: rgb(23, 21, 21);
+            color: white;
+        }
+        .body{
+            display: grid;
+            grid-template-areas:
+             'a b c d'
+             'e f g h'
+             'i j k l'
+             'm n o p'
+             '. q q .'             ;
+             width: 300px;
+        }
+        .button{
+            height: 50px;
+            width: 50px;
+            padding: 20px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: grey;
+            border-radius: 25px;
+        }
+        .ans{
+            height: 30px;
+            text-align: center;
+        }
+        .but1{
+            grid-area: 'a';
+        }
+        .but2{
+            grid-area: 'b';
+        }
+        .but3{
+            grid-area: 'c';
+        }
+        .but4{
+            grid-area: 'd';
+        }
+        .but5{
+            grid-area: 'e';
+        }
+        .but6{
+            grid-area: 'f';
+        }
+        .but7{
+            grid-area: 'g';
+        }
+        .but8{
+            grid-area: 'h';
+        }
+        .but9{
+            grid-area: 'i';
+        }
+        .but10{
+            grid-area: 'j';
+        }
+        .but11{
+            grid-area: 'k';
+        }
+        .but12{
+            grid-area: 'l';
+        }
+        .but13{
+            grid-area: 'm';
+        }
+        .but14{
+            grid-area: 'n';
+        }
+        .but15{
+            grid-area: 'o';
+        }
+        .but16{
+            grid-area: 'p';
+        }
+        .but17{
+            grid-area: 'q';
+            
+        }
+    </style>
+</head>
+<body>
+    <p>Console Calculator</p>
+    
+    <p class="ans"></p>
+<div class="body">
+    
+        <button class="button but1" onclick="updateCalculation(1);">1</button>
+        <button class="button but2" onclick="updateCalculation(2);">2</button>
+        <button class="button but3" onclick="updateCalculation(3);">3</button>
+        <button class="button but4" onclick="updateCalculation('+');">+</button>
+
+        <button class="button but5" onclick="updateCalculation(4);">4</button>
+        <button class="button but6" onclick="updateCalculation(5);">5</button>
+        <button class="button but7" onclick="updateCalculation(6);">6</button>
+        <button class="button but8" onclick="calculation=updateCalculation('-');">-</button>
+
+        <button class="button but9" onclick="updateCalculation(7);">7</button>
+        <button class="button but10" onclick="updateCalculation(8);">8</button>
+        <button class="button but11" onclick="updateCalculation(9);">9</button>
+        <button class="button but12" onclick="updateCalculation('*');">*</button>
+
+        <button class="button but13" onclick="updateCalculation(0);">0</button>
+        <button class="button but14" onclick="updateCalculation('.');">.</button>
+        <button class="button but15" onclick="updateCalculation('/');">/</button>
+        <button class="button but16" onclick="calculation=eval(calculation);document.querySelector('.ans').innerHTML=`${calculation}`; ">=</button>
+        <button class="button but17" onclick="calculation='';document.querySelector('.ans').innerHTML=`${calculation}`">clear</button>
+</div>
+    
+
+    <script>
+        let calculation='';
+        function updateCalculation(number){
+            calculation+=number;
+            document.querySelector('.ans').innerHTML=`${calculation}`
+            
+
+
+        }
+    </script>
+</body>
+</html>

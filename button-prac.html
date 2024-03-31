@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .On{
+            background-color: rgb(190, 183, 183);
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+        .itsOn{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="On g" onclick="Turn('g'); off('g');">Gaming</button>
+    <button class="On m" onclick="Turn('m'); off('m');">Music</button>
+    <button class="On t" onclick="Turn('t'); off('t');">Tech</button>
+
+
+    <script>
+        function Turn(identity){
+            const ButtonElement = document.querySelector(`.${identity}`);
+            if (ButtonElement.classList.contains('itsOn')){
+                ButtonElement.classList.remove('itsOn');
+            }else{
+                ButtonElement.classList.add('itsOn');
+            }
+        }
+        function off(identity){
+            const but1=document.querySelector('.g');
+            const but2=document.querySelector('.m');
+            const but3=document.querySelector('.t');
+
+            if (identity==='g'){
+                but2.classList.remove('itsOn');
+                but3.classList.remove('itsOn');
+
+            }else if(identity==='m'){
+                but1.classList.remove('itsOn');
+                but3.classList.remove('itsOn');
+
+            }else{
+                but1.classList.remove('itsOn');
+                but2.classList.remove('itsOn');
+            }
+        }
+        </script>
+</body>
+</html>

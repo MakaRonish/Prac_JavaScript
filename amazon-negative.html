@@ -18,6 +18,9 @@
             border: none;
             cursor: pointer;
         }
+        .warning{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -29,13 +32,23 @@
     <p class="result"></p>
     <script>
         function calculation(){
+        let element = document.querySelector('.result');
         let cost=Number(document.querySelector('.js-input').value);
+        if (cost<0){
+            element.classList.add('warning');
+            element.innerHTML=`Error: Cost cannot be less than 0`;
 
-        if (cost<40){
-            document.querySelector('.result').innerHTML=`Total Cost: $${cost+10}.<p>$10 for shipping</p>`;
+
+        }
+        else if (cost<40){
+            element.innerHTML=`Total Cost: $${cost+10}.<p>$10 for shipping</p>`;
+            element.classList.remove('warning');
+
            
         }else{
-            document.querySelector('.result').innerHTML=`Total Cost: $${cost}`;
+            element.innerHTML=`Total Cost: $${cost}`;
+            element.classList.remove('warning');
+
         }
         }
         function enter(event){
