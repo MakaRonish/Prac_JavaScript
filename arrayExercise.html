@@ -131,20 +131,28 @@
         }
         minmaxss([])
 
-        function dic(array){
-            ob={};
-            z=0
-            while(z<array.length){
-                text=array[z];
-                ob.text=0;
-                if (ob.text>=0){
-                    ob.text=ob.text+1
+        function count(array){
+            let object={};
+            a=0
+            
+            while (a<array.length){
+                
+                fruit=array[a];
+                
+                a++
+                if (fruit in object === true){
+                    object[fruit]=object[fruit]+1;
+                    console.log(object);
+                }else{
+                    object[fruit]=1
                 }
-                z++
+                
+                
             }
-            console.log(ob)
+            console.log(object);
+
         }
-        dic(['apple','grape','apple','apple'])
+        count(['apple','grape','apple','apple'])
     </script>
 </body>
 </html>

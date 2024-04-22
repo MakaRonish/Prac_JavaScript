@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To_Do</title>
+    <style>
+        input{
+            width: 150px;
+            height: 10px;
+            padding: 10px;
+        }
+        
+        button{
+            width: 150px;
+            height: 33px;
+            padding: 10px;
+            border: none;
+            background-color: green;
+            color: white;
+        }
+        button:hover{
+            opacity: 0.8;
+            transition: opacity 1s;
+        }
+        .del{
+            width: 150px;
+            height: 33px;
+            padding: 10px;
+            border: none;
+            background-color: rgb(128, 0, 0);
+            color: white;
+        }
+     
+        .addThing{
+            margin-top: 10px;
+            padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(4,165px);
+            gap: 10px;
+
+        }
+        
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h4>To do list</h4>
+        <input type="text" placeholder="To do things" class="Things" onkeydown="whenEnter(event)">
+        <input type="date" class="time" onkeydown="whenEnter(event)">
+        <button onclick="on(); render()" >ADD</button>
+        <section class="section">
+            <div class="addThing"></div>
+
+
+        </section>
+        
+    </div>
+    <script>
+        let lists=[];
+        let times=[];
+        
+    function on(){
+        let toDoElement=document.querySelector('.Things');
+        let toDoValue=toDoElement.value;
+        let timeElement=document.querySelector('.time');
+        let timeValue=timeElement.value;
+        if (toDoValue ==='' || timeValue===''){
+            alert("Nothing to add")
+
+        }else{
+        
+        let Combine={thingstodo:toDoValue,
+            timesofthings:timeValue}
+        lists.push(Combine);
+
+        document.querySelector('.time').value='';
+        document.querySelector('.Things').value='';
+        }
+
+        
+    }
+    function render(){
+        let renderArea='';
+        for(let i=0;i<lists.length;i++){
+        renderArea+=`<div>${lists[i].thingstodo}</div><div>${lists[i].timesofthings}</div> <button class="del${i} del" onclick="remove(event) ;render()">Delete</button></p>`;    
+        }
+         let text=document.querySelector('.addThing').innerHTML=renderArea;
+        
+    }
+    
+    function remove(event){
+       let element=event.target;
+       let class_name=element.className;
+       class_name=class_name.replace("del","");
+       lists.splice(parseInt(class_name),1);
+
+       
+       
+
+    }
+
+    function whenEnter(event){
+        if (event.key==='Enter'){
+            on();
+            render();
+
+        }
+    }
+    
+
+
+
+
+    
+
+
+    </script>
+    
+</body>
+</html>
