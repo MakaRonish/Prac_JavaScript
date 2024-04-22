@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To_Do</title>
+    <style>
+        input{
+            width: 150px;
+            height: 10px;
+            padding: 10px;
+        }
+        
+        button{
+            width: 150px;
+            height: 33px;
+            padding: 10px;
+            border: none;
+            background-color: green;
+            color: white;
+        }
+        .del{
+            width: 150px;
+            height: 33px;
+            padding: 10px;
+            border: none;
+            background-color: rgb(128, 0, 0);
+            color: white;
+        }
+        p{
+            margin-right: 20px;
+        }
+
+        
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h4>To do list</h4>
+        <input type="text" placeholder="To do things" class="Things" onkeydown="whenEnter(event)">
+        <input type="date" class="time" onkeydown="whenEnter(event)">
+        <button onclick="on(); render()" >ADD</button>
+        <section class="section">
+            <div class="addThing"></div>
+
+
+        </section>
+        
+    </div>
+    <script>
+        let lists=[];
+        let times=[];
+        
+    function on(){
+        let toDoElement=document.querySelector('.Things');
+        let toDoValue=toDoElement.value;
+        let timeElement=document.querySelector('.time');
+        let timeValue=timeElement.value;
+        lists.push(toDoValue);
+        times.push(timeValue);
+        document.querySelector('.time').value='';
+        document.querySelector('.Things').value='';
+
+        
+    }
+    function render(){
+        let renderArea='';
+        for(let i=0;i<lists.length;i++){
+        renderArea+=`<p>${lists[i]}  ${times[i]} <button class="del${i} del" onclick="remove(event) ;render()">Delete</button></p>`;    
+        }
+         let text=document.querySelector('.addThing').innerHTML=renderArea;
+        
+    }
+    
+    function remove(event){
+       let element=event.target;
+       let class_name=element.className;
+       class_name=class_name.replace("del","");
+       lists.splice(parseInt(class_name),1);
+       times.splice(parseInt(class_name),1);
+       
+       
+
+    }
+
+    function whenEnter(event){
+        if (event.key==='Enter'){
+            on();
+            render();
+
+        }
+    }
+    
+
+
+
+        // let to_do=[];
+        // let time=[];
+        // function add_value(){
+        //     let ran=0
+        //     let to_doElement=document.querySelector('.Things');
+        //     let do_value=to_doElement.value;
+        //     let timeElement=document.querySelector('.time');
+        //     let time_value=timeElement.value;
+        //     let things_display=document.querySelector('.addThing');
+        //     let time_display=document.querySelector('.addtime');
+        //     if (do_value==='' || time_value===''){
+        //         document.querySelector('section').innerHTML='nothing added';
+        //         return
+                
+
+        //     }else{
+        //         to_do.push(do_value);
+        //         time.push(time_value);
+        //         let z=0
+        //         let insert_html_todo='';
+        //         let insert_html_time='';
+        //         let insert_html_button='';
+        //         while(z<to_do.length && z<time.length){
+        //             let things=`<p class="p${z}">${to_do[z]}</p>`;
+        //             let timee=`<p class="pp${z}">${time[z]}</p>`;
+        //             let buttonn=`<button class="delete-button delete${z}">Delete</button>`;
+        //             insert_html_time+=timee;
+        //             insert_html_todo+=things;
+        //             insert_html_button+=buttonn;
+                    
+        //             z++
+        //     }
+        //         console.log(insert_html_button);
+        //         let add_thing=document.querySelector('.addThing');
+        //         let add_time=document.querySelector('.addtime');
+        //         let add_button=document.querySelector('.delete');
+        //         add_thing.innerHTML=`${insert_html_todo}`;
+        //         add_time.innerHTML=`${insert_html_time}`;
+        //         add_button.innerHTML=`${insert_html_button}`;
+        //         to_doElement.value='';
+        //         timeElement.value='';
+                
+                
+        //     }
+            
+
+        // }
+        // function remove(){
+        //     for (let y ;y<to_do.length;y++) {
+
+        //     }
+            
+
+        // }
+    
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let array=[10,20,30];
+        // array[2]=99;
+        // console.log(array);
+        // function getlast(){
+        //     console.log(array[array.length-1]);
+        // }
+        // getlast();
+
+        // function swap(){
+        //     array.push(array[0]);
+        //     array[0]=array[array.length-2];
+        //     array.splice(array.length-2,1)
+        // }
+        // swap()
+        // console.log(array);
+        // for (let i=0;i<=10;i=i+2){
+        //     console.log(i);
+        // }
+        // for (let j=5;j>=1;j--){
+        //     console.log(j);
+        // }
+        // k=0
+        // while(k>-11){
+        //     console.log(k);
+        //     k=k-2
+        // }
+
+        
+        // function addArray(array){
+        //     let newa=[];
+        //     for (let x=0;x<array.length;x++){
+        //         newa.push(array[x]+1)
+
+        //     }
+        //     console.log(newa);
+        // }
+        // addArray([90,70,1,2,3,4]);
+
+        // function addArrayplus(array,num){
+        //     let newar=[];
+        //     for (let x=0;x<array.length;x++){
+        //         newar.push(array[x]+num)
+
+        //     }
+        //     console.log(newar);
+        // }
+        // addArrayplus([2,3,4,5,6],90)
+
+        // function aaa(array,array1){
+        //     let final=[];
+        //     z=0
+        //     while(z<array.length){
+        //         final.push(array[z]+array1[z])
+        //         z++
+
+        //     }
+        //     console.log(final)
+
+        // }
+        // aaa([1,2,3,4],[1,2,3,4])
+
+        // function count(array){
+        //     a=0
+        //     c=0
+        //     while(a<array.length){
+        //         if (array[a]>0){
+        //             c+=1
+
+        //         }
+        //         a++
+        //     }
+        //     console.log(c)
+        // }
+        // count([1,2,3,4,-5])
+
+
+        function minmaxs(array){
+            a=0
+            let largest=array[0];
+                let smalelest=array[0];
+            while(a<array.length){
+
+                number=array[a]
+                if (number > largest){
+                    largest=number
+
+                }else if (number < smalelest){
+                    smalelest=number
+
+                }
+                a++
+                
+            }
+            console.log(`min ${smalelest}\n max ${largest}`)
+        }
+        minmaxs([1,-3,5])
+        l=[];
+        console.log(l.length);
+        function minmaxss(array){
+            let a=0
+            let largest=array[0];
+            let smalelest=array[0];
+            if ( array.length===0){
+                console.log(`min:null max:null`);
+            }else{
+            while(a<array.length){
+                number=array[a]
+               
+                if (number > largest){
+                    largest=number
+
+                }else if (number < smalelest){
+                    smalelest=number
+
+                }
+                a++
+                
+            }
+            console.log(`min ${smalelest}\n max ${largest}`)
+        }
+            
+        }
+        minmaxss([])
+
+        function dic(array){
+            ob={};
+            z=0
+            while(z<array.length){
+                text=array[z];
+                ob.text=0;
+                if (ob.text>=0){
+                    ob.text=ob.text+1
+                }
+                z++
+            }
+            console.log(ob)
+        }
+        dic(['apple','grape','apple','apple'])
+    </script>
+</body>
+</html>

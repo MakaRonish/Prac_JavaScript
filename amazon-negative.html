@@ -27,8 +27,8 @@
     <h1>Amazon Shipping Calculator</h1>
     <p>Order under $40 = +$10 shipping</p>
     <p>Order over $40 = free shipping.</p>
-    <input type="number" placeholder="Cost of Order" class="js-input" onkeydown="enter(event)">
-    <button onclick="calculation()" class="Cal">Calculate</button>
+    <input type="number" placeholder="Cost of Order" class="js-input" onkeydown="enter(event)" >
+    <button onclick="calculation()" class="Cal" >Calculate</button>
     <p class="result"></p>
     <script>
         function calculation(){
@@ -37,23 +37,27 @@
         if (cost<0){
             element.classList.add('warning');
             element.innerHTML=`Error: Cost cannot be less than 0`;
+            document.querySelector('.js-input').value='';
 
 
         }
         else if (cost<40){
             element.innerHTML=`Total Cost: $${cost+10}.<p>$10 for shipping</p>`;
             element.classList.remove('warning');
+            document.querySelector('.js-input').value='';
 
            
         }else{
             element.innerHTML=`Total Cost: $${cost}`;
             element.classList.remove('warning');
+            document.querySelector('.js-input').value='';
 
         }
         }
         function enter(event){
             if (event.key==='Enter'){
                 calculation()
+                
             }
 
         }
