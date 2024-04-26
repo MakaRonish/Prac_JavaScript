@@ -25,6 +25,21 @@
         let array=[];
         array.push(111);
         console.log(array);
+        let array2=myarray.slice();//will not copy the refrence copy the array itself
+        for(let i=0;i<=10;i++){
+            if(i%3===0){
+                continue
+            }
+        console.log(i);
+        }
+        function double(array){
+            let newArray=[]
+            for (let j=0;j<array.length;j++){
+                newArray.push(array[j]*2);
+            }
+            return newArray
+        }
+        console.log(double([9,5,10,23]))
     </script>
 </body>
 </html>

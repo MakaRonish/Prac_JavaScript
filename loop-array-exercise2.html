@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function check(array){
+        //     index=-1;
+        //     for (let i=0;i<array.length;i++){
+        //         if(array[i]==='search'){
+        //             index=i
+        //             break
+        //         }
+                
+        //     }
+        //     console.log(index)
+        // }
+        // check(['hello','world','search','good']);
+        // check(['not','world','found','good']);
+
+
+        function something(array,word){
+            let index=0;
+            for (let i=0;i<array.length;i++){
+                if(array[i]===word){
+                    index=i
+                    break
+                }else{
+                    index=-1
+                }
+                
+            }
+            console.log(index)
+
+        }
+        something(['g','b','r'],'r')
+        function remove(array){
+            newArrr=[];
+
+            for (let j=0;j<array.length;j++){
+                if (array[j]==='egg'){
+                    continue
+                }else{
+                    newArrr.push(array[j]);
+                }
+            }
+            console.log(newArrr);
+        }
+        remove(['hello','egg','g','m','egg'])
+        function remove2(array){
+            newArrr=[];
+            let count=0
+            let z=0;
+            while (z<array.length){
+                if (array[z]==='egg' && count<2){
+                    count++
+                    z++
+                    continue
+                }else{
+                    newArrr.push(array[z]);
+                }
+                z++
+            }
+            
+
+            console.log(newArrr);
+        }
+        c=['hello','egg','g','m','egg','egg']
+        z=c.reverse().slice();
+        console.log(z);
+        remove2(z);
+
+        function challenge(x,y,z){
+            for (let o=0;o<=z;o++){
+                if(o%x===0 && o%y===0){
+                    console.log('fizzbuzz')
+                }
+                else if(o%x===0){
+                    console.log('Fizz')
+                }else if(o%y===0){
+                    console.log('Buzz')
+                }else{
+                    console.log(o);
+                }
+            }
+            
+        }
+        challenge(3,5,20)
+    </script>
+</body>
+</html>

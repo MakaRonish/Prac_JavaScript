@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button class="c12" onclick="change()">start</button><br><br>
+    <button class="added" onclick="addtoCart()">Add</button><br><br>
+    <div class="text"></div>
+
+    <br><br>
+    <button class="addm" onclick="addM()">ADD M</button>
+    <button class="remove" onclick="remove()">Remove</button>
+    <script>
+        add=function(){
+            console.log(2+3)
+        }
+        function runTwice(add){
+            add();
+            add();
+
+        }
+        runTwice(add);
+
+        function change(){
+            ElementBUt=document.querySelector('.c12');
+            setTimeout(function(){
+                ElementBUt.textContent='Loading';
+                
+            },2000);
+            setTimeout(function(){
+                
+                ElementBUt.textContent='Finished';
+            },4000)
+
+        }
+        let text=document.querySelector('.text');
+        function addtoCart(){
+            
+            text.innerHTML='Added';
+            setTimeout(help,2000);
+        }
+        function help(){
+            
+            text.innerHTML='';
+        }
+        console.log(document.getElementsByClassName('text'))
+        console.log(document.querySelector('.text'))
+        
+        
+
+      let messages=0;
+      function addM(){
+        messages++;
+      }
+      function remove(){
+        messages--;
+      }
+      setInterval(function() {
+
+        if (document.title === 'App' && messages>0 ) {
+          document.title = `(${messages}) New messages`;
+        } else {
+          document.title = 'App';
+        }
+      }, 1000);
+
+
+    </script>
+</body>
+</html>

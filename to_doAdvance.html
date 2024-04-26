@@ -69,7 +69,6 @@
     </div>
     <script>
         let lists=JSON.parse(localStorage.getItem('list'))|| [];
-        console.log(JSON.parse(localStorage.getItem('list')))
     function on(){
         let toDoElement=document.querySelector('.Things');
         let toDoValue=toDoElement.value;
@@ -93,9 +92,9 @@
     }
     function render(){
         let renderArea='';
-        for(let i=0;i<lists.length;i++){
-        renderArea+=`<div>${lists[i].thingstodo}</div><div>${lists[i].timesofthings}</div> <button class="del${i} del" onclick="remove(event) ;render()">Delete</button></p>`;    
-        }
+        lists.forEach(function(value,index){
+            renderArea+=`<div>${lists[index].thingstodo}</div><div>${lists[index].timesofthings}</div> <button class="del${index} del" onclick="remove(event) ;render()">Delete</button></p>`;
+        });
         
          let text=document.querySelector('.addThing').innerHTML=renderArea;
         
