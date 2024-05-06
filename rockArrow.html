@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <style>
+        body{
+            font-style: Arial;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+        .butt{
+            padding: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background-color: transparent;
+            margin: 15px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        .res,.autoPlay,.stop{
+            width: 150px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .result{
+            font-weight: bold;
+        }
+        .yes,.No{
+            width: 150px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>Rock Paper Scissors</p>
+<div>
+    <button class="butt but1" >✊</button>
+    <button class="butt but2" >✋</button>
+    <button class="butt but3" >✂️</button>
+    <p class="result"></p>
+    <p class="score"></div><br><p>
+    <div class="resetSpace"><button class="res">Reset Score</button></div><br>
+    <button class="autoPlay">
+        Auto Play
+    </button>
+    
+</div>
+
+    <script>
+        
+        let Score= JSON.parse(localStorage.getItem('Score'))|| {
+            win:0,
+            loss:0,
+            tie:0
+        };
+        document.querySelector('.score').innerHTML=`<p>score:<br><br> win:${Score.win},loss:${Score.loss},tie:${Score.tie}</p>`
+
+        const RockElement=document.querySelector('.but1');
+        const PaperElement=document.querySelector('.but2');
+        const ScissorsElement=document.querySelector('.but3');
+        const ResetElement=document.querySelector('.res');
+        const AutoElement=document.querySelector('.autoPlay');
+        const ResetSpace=document.querySelector('.resetSpace');
+        
+
+        ResetElement.addEventListener('click',()=>{
+            reset()
+
+        });
+        AutoElement.addEventListener('click',()=>{
+            auto()
+
+        })
+
+
+        RockElement.addEventListener('click',()=>{
+            play('✊'); 
+            randomChoice();
+
+        })
+        PaperElement.addEventListener('click',()=>{
+            play('✋'); 
+            randomChoice();
+
+        })
+        ScissorsElement.addEventListener('click',()=>{
+            play('✂️'); 
+            randomChoice();
+
+        })
+
+        const BodyElement=document.querySelector('body');
+        BodyElement.addEventListener('keydown',(event)=>{
+            if(event.key==='r'){
+                play('✊'); 
+            randomChoice();
+            }else if(event.key==='p'){
+                play('✋'); 
+            randomChoice();
+
+            }else if(event.key==='s'){
+                play('✂️'); 
+            randomChoice();
+
+            }else if(event.key==='a'){
+                auto();
+            }
+
+        })
+
+        function randomChoice(){
+        let comp_choice='';
+        
+        if(Math.random()>1/3){
+            comp_choice='✊';
+        }else if (Math.random()<1/3 &&Math.random()>2/3){
+            comp_choice='✋';
+        }else{
+            comp_choice='✂️';
+        }return comp_choice
+    }
+        function play(user){
+            let result='';
+            comp_choice=randomChoice();
+        if (comp_choice==='✊'){
+            if (user==='✊'){
+                Score.tie++;
+                result='Tie';
+                
+            }else if(user==='✋'){
+                Score.loss++;
+                result='Loss';
+            }else if (user==='✂️'){
+                Score.win++;
+                result='Win';
+
+            }
+        }else if (comp_choice==='✋'){
+            if (user==='✊'){
+                Score.win++;
+                result='Win';
+
+            }else if(user==='✋'){
+                Score.tie++;
+                result='Tie';
+            }else if (user==='✂️'){
+                Score.loss++;
+                result='Loss';
+
+            }
+    }else if (comp_choice==='✂️'){
+            if (user==='✊'){
+                Score.loss++;
+                result='Loss';
+            }else if(user==='✋'){
+                Score.win++;
+                result='Win';
+            }else if (user==='✂️'){
+                Score.tie++;
+                result='Tie';
+            }}
+        localStorage.setItem('Score',JSON.stringify(Score));
+        document.querySelector('.result').innerHTML=`<p>you choose ${user}. computer choose ${comp_choice}.</p><p>Result:${result}</p>`
+        updateScore()
+
+        }
+        function updateScore(){
+            document.querySelector('.score').innerHTML=`score: win${Score.win}, loss${Score.loss}, tie:${Score.tie}</p>`
+
+        }
+        function reset(){
+            ResetSpace.innerHTML='<p>Are you sure you want to reset the score?<button class="yes">yes</button><button class="No">No</button></p>';
+            const Yes=document.querySelector('.yes');
+            const No=document.querySelector('.No');
+            Yes.addEventListener('click',()=>{
+                Score.win=0;
+                Score.loss=0;
+                Score.tie=0;
+                localStorage.removeItem('Score');
+                updateScore();
+                document.querySelector('.resetSpace').innerHTML = '<div class="resetSpace"><button class="res">Reset Score</button></div><br>';
+            });
+            No.addEventListener('click',()=>{
+                updateScore();
+                document.querySelector('.resetSpace').innerHTML = '<div class="resetSpace"><button class="res">Reset Score</button></div><br>';
+            })
+            
+            
+        }    
+        
+        
+
+        const autoPlay=()=>{
+            randomChoice();
+            let user_auto=Math.floor(Math.random() * 3);
+            if (user_auto===0){
+                user_auto='✊';
+
+            }else if(user_auto===1){
+                user_auto='✂️';
+            }else{
+                user_auto='✋';
+            }
+            play(user_auto);
+            
+        }
+        let id;
+        let interval=1;
+
+        function auto(){
+            let autoBUtton=document.querySelector('.autoPlay');
+        if (interval===1){
+            id=setInterval(autoPlay,2000);
+            
+            autoBUtton.textContent='stop';
+            interval=0;
+        }else{
+            clearInterval(id);
+            interval=1;
+            autoBUtton.textContent='Auto Play';
+        }};
+        
+        
+       
+        
+        
+        
+    </script>
+</body>
+</html>

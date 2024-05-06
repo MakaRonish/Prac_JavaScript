@@ -59,7 +59,7 @@
         <h4>To do list</h4>
         <input type="text" placeholder="To do things" class="Things" onkeydown="whenEnter(event)">
         <input type="date" class="time" onkeydown="whenEnter(event)">
-        <button onclick="on(); render()" >ADD</button>
+        <button class="addBUt">ADD</button>
         <section class="section">
             <div class="addThing"></div>
 
@@ -69,6 +69,12 @@
     </div>
     <script>
         let lists=JSON.parse(localStorage.getItem('list'))|| [];
+        render();
+        const AddElement=document.querySelector('.addBUt');
+        AddElement.addEventListener('click',()=>{
+            on(); 
+            render();
+        });
     function on(){
         let toDoElement=document.querySelector('.Things');
         let toDoValue=toDoElement.value;
@@ -92,14 +98,24 @@
     }
     function render(){
         let renderArea='';
-        lists.forEach(function(value,index){
-            renderArea+=`<div>${lists[index].thingstodo}</div><div>${lists[index].timesofthings}</div> <button class="del${index} del" onclick="remove(event) ;render()">Delete</button></p>`;
+        lists.forEach((value,index)=>{
+            renderArea+=`<div>${lists[index].thingstodo}</div><div>${lists[index].timesofthings}</div> <button class="del${index} del remove">Delete</button></p>`;
         });
         
          let text=document.querySelector('.addThing').innerHTML=renderArea;
+         let delBut=document.querySelectorAll('.remove');
+         delBut.forEach((delbut,index)=>{
+            delbut.addEventListener('click',()=>{
+            remove(event) ;
+            render();
+         })
+
+        }) 
+        
+         
         
     }
-    
+
     function remove(event){
        let element=event.target;
        let class_name=element.className;

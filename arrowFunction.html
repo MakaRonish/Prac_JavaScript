@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <button class="click" on>click</button>
+ <script>
+    let buttonElement=document.querySelector('.click');
+    const event=()=>{
+        console.log('clicked')
+    };
+    buttonElement.addEventListener('click',()=>{
+        console.log('clicked')
+    });
+    const regularFun = function(param,param2){
+        console.log('hello');
+        return 5;
+    }
+        const arrowFunction = (param,param2) => {
+        console.log('hello');
+        return 5;
+    };
+
+    arrowFunction()
+
+
+    const oneParam = param=>{
+        console.log(param+1)
+    }
+    const oneLine =() =>  2+3;
+
+    const object={
+        method:()=> {
+
+        },
+        method(){
+
+        }
+    }
+
+
+    let array=[1,2,-9,-8];
+    let array2=array.filter((value,index)=>{
+        return value >=0;
+        
+    })
+    console.log(array2)
+
+    let num=[1,1,3];
+    let z=num.map((value,index)=>{
+        return value*2;
+
+    })
+    console.log(z)
+ </script>
+</body>
+</html>
